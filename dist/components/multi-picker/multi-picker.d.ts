@@ -19,6 +19,7 @@ export declare class MultiPicker implements AfterContentInit, ControlValueAccess
     _sequence: number[];
     _originSelectedIndexes: number[];
     id: string;
+    cssClass: string;
     cancelText: string;
     doneText: string;
     resetText: string;

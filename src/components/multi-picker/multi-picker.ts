@@ -42,6 +42,11 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
   id: string;
 
   /**
+   * @input {string} CSS class for the component.
+   */
+  @Input() cssClass: string = '';
+
+  /**
    * @input {string} The text to display on the picker's cancel button. Default: `Cancel`.
    */
   @Input() cancelText: string = 'Cancel';
@@ -123,7 +128,7 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
       return;
     }
 
-    let pickerOptions: any = {};
+    let pickerOptions: any = {cssClass: this.cssClass};
 
     let picker = this._pickerCtrl.create(pickerOptions);
     const cancel = { text: this.cancelText, role: 'multi-picker-cancel', handler: () => { this.ionCancel.emit(null); } }

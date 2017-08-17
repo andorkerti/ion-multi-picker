@@ -20,6 +20,7 @@ var MultiPicker = (function () {
         this._isDependent = false;
         this._sequence = [];
         this._originSelectedIndexes = [];
+        this.cssClass = '';
         this.cancelText = 'Cancel';
         this.doneText = 'Done';
         this.resetText = 'Reset';
@@ -55,7 +56,7 @@ var MultiPicker = (function () {
         if (this._disabled) {
             return;
         }
-        var pickerOptions = {};
+        var pickerOptions = { cssClass: this.cssClass };
         var picker = this._pickerCtrl.create(pickerOptions);
         var cancel = { text: this.cancelText, role: 'multi-picker-cancel', handler: function () { _this.ionCancel.emit(null); } };
         var reset = { text: this.resetText, role: 'multi-picker-reset', handler: function (data) { _this.reset(); return false; } };
@@ -324,6 +325,7 @@ MultiPicker.ctorParameters = function () { return [
     { type: ionic_angular_1.PickerController, decorators: [{ type: core_1.Optional },] },
 ]; };
 MultiPicker.propDecorators = {
+    'cssClass': [{ type: core_1.Input },],
     'cancelText': [{ type: core_1.Input },],
     'doneText': [{ type: core_1.Input },],
     'resetText': [{ type: core_1.Input },],
